@@ -163,6 +163,9 @@
             hasPiece = true;
           }
           k++;
+          if (k >= length) {
+            break;
+          }
         }
       } else if (majorDiagonalColumnIndexAtFirstRow > length) {
         k = 0;
@@ -176,7 +179,7 @@
             hasPiece = true;
           }
           k++;
-          if (k > length - 2 || i > length - 2) {
+          if (k >= length) {
             break;
           }
         }
@@ -187,7 +190,10 @@
     // test if any major diagonals on this board contain conflicts
     hasAnyMajorDiagonalConflicts: function () {
       var board = this.rows();
-      var n = board[0].length;
+      if (board[0] !== undefined) {
+        var n = board[0].length;
+      }
+
 
       for (var i = 0; i < (n * 2) - 1; i++) {
         if (this.hasMajorDiagonalConflictAt(i)) {
@@ -245,7 +251,10 @@
     // test if any minor diagonals on this board contain conflicts
     hasAnyMinorDiagonalConflicts: function () {
       var board = this.rows();
-      var n = board[0].length;
+      if (board[0] !== undefined) {
+        var n = board[0].length;
+      }
+
 
       for (var i = 1; i < (n * 2) - 1; i++) {
         if (this.hasMinorDiagonalConflictAt(i)) {
