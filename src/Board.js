@@ -222,7 +222,7 @@
           }
         }
       } else if (minorDiagonalColumnIndexAtFirstRow > length) {
-        k = 1;
+        k = minorDiagonalColumnIndexAtFirstRow - length;
         hasPiece = false;
 
         for (var i = length - 1; i >= 0; i--) {
